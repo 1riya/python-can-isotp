@@ -153,7 +153,8 @@ class PDU:
 
     @classmethod
     def craft_flow_control_data(cls, flow_status, blocksize, stmin):
-        return bytearray([ (0x30 | (flow_status) & 0xF), blocksize&0xFF, stmin & 0xFF])
+        #return bytearray([ (0x30 | (flow_status) & 0xF), blocksize&0xFF, stmin & 0xFF])
+        return bytearray([ (0x30 | (flow_status) & 0xF), blocksize&0xFF, stmin & 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00])
 
     def name(self):
         if self.type is None:
